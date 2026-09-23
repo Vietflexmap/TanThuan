@@ -39,11 +39,11 @@ https://map.chuyendoisotanthuan.com:2021/<source-layer>/{z}/{x}/{y}.pbf
 
 Một số nguồn trong snapshot gốc đã bị comment/tắt (`Đất công`, `Chung cư`, `Hộ kinh doanh`, `Xử lý vi phạm`, `Dự án`). Bản mới vẫn hiển thị chúng trong danh mục với trạng thái **chờ nguồn**, nhưng không gọi endpoint không còn được bật.
 
-Tra cứu số tờ/số thửa gọi API gốc khi CORS cho phép. Nếu triển khai GitHub Pages mà API chặn CORS, sẽ cầl proxy/backend do bạn quản lý.
+Tra cứu số tờ/số thửa gọi API gốc khi CORS cho phép. Nếu triển khai GitHub Pages mà API chặn CORS, cần proxy/backend do bạn quản lý.
 
 ## GitHub Pages
 
-Workflow `pages.yml` deploy site tỉnh từ root. Trong **Settings → Pages**, chọn **Source: GitHub Actions** nếu repository chưa được bật Pages.
+Workflow `pages.yml` deploy site tĩnh từ root. Trong **Settings → Pages**, chọn **Source: GitHub Actions** nếu repository chưa được bật Pages.
 
 ## Nguồn lõi
 
