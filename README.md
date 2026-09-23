@@ -7,7 +7,7 @@ WebGIS hành chính chuyên biệt cho **Phường Tân Thuận, TP.HCM**, thi�
 - Giao diện hành chính **đỏ – vàng**, responsive desktop/mobile.
 - MapLibre GL JS + lớp vector tile cấu hình độc lập.
 - Tách `config.js`, `webgis-core.js`, `app.js` để không quay lại kiến trúc HTML monolith.
-- Nhóm lớp: địa giới/khu phố, quy hoạch, địa chính, cấp phép xây dựng, nhà trọ, trường học, cơ quan.
+- Nhóm lớp: địa giới/khu phố, quy hoạch, địa chính, cấp phép xây dựng, điểm nóng, nhà trọ, trường học, cơ quan.
 - Chọn đối tượng và xem thuộc tính vector tile.
 - Tra cứu tọa độ / URL Google Maps.
 - Đo khoảng cách, diện tích bằng Turf.
@@ -25,9 +25,16 @@ TanThuan/
 │       ├── config.js
 │       ├── webgis-core.js
 │       └── app.js
+├── data/TanThuan_GeoData/
 ├── .github/workflows/pages.yml
 └── .nojekyll
 ```
+
+## Bộ GeoData nguồn
+
+Gói dữ liệu bạn cung cấp đã được nhập nguyên cấu trúc vào `data/TanThuan_GeoData/`, gồm catalog 23 vector source, 16 source active, endpoint GeoJSON, whitelist thuộc tính, metadata hệ thống, GeoJSON tâm bản đồ, trích đoạn source và script `export_tan_thuan_geojson.py` để xuất MVT/PBF thành GeoJSON.
+
+Catalog này được dùng làm nguồn đối chiếu cho cấu hình WebGIS. Lớp `geo_diem_nong` đã được đồng bộ lại vào giao diện vì catalog xác nhận đây là source active trong phiên bản gốc.
 
 ## Cấu hình dữ liệu
 
