@@ -1,0 +1,104 @@
+[
+  {
+    "line": 983,
+    "checkbox_id": "check_all_layers",
+    "label": "Bật/Tắt tất cả",
+    "checked_by_default": true
+  },
+  {
+    "line": 998,
+    "checkbox_id": "check_geo_dat_cong",
+    "label": "Đất công",
+    "checked_by_default": true
+  },
+  {
+    "line": 1013,
+    "checkbox_id": "check_geo_thua_dat",
+    "label": "Bản đồ địa chính",
+    "checked_by_default": true
+  },
+  {
+    "line": 1028,
+    "checkbox_id": "check_view_geo_phan_khu",
+    "label": "Quy hoạch xây dựng",
+    "checked_by_default": true
+  },
+  {
+    "line": 1044,
+    "checkbox_id": "check_geo_cap_phep_xay_dung",
+    "label": "Cấp phép xây dựng",
+    "checked_by_default": true
+  },
+  {
+    "line": 1059,
+    "checkbox_id": "check_geo_chung_cu",
+    "label": "Chung cư",
+    "checked_by_default": true
+  },
+  {
+    "line": 1074,
+    "checkbox_id": "check_geo_diem_nong",
+    "label": "Điểm nóng",
+    "checked_by_default": true
+  },
+  {
+    "line": 1089,
+    "checkbox_id": "check_geo_ho_kinh_doanh",
+    "label": "Hộ kinh doanh",
+    "checked_by_default": true
+  },
+  {
+    "line": 1104,
+    "checkbox_id": "check_geo_nha_tro",
+    "label": "Nhà trọ",
+    "checked_by_default": true
+  },
+  {
+    "line": 1119,
+    "checkbox_id": "check_geo_truong_hoc",
+    "label": "Trường học",
+    "checked_by_default": true
+  },
+  {
+    "line": 1134,
+    "checkbox_id": "check_geo_vi_tri_co_quan",
+    "label": "Vị trí cơ quan",
+    "checked_by_default": true
+  },
+  {
+    "line": 1149,
+    "checkbox_id": "check_geo_xu_ly_vi_pham",
+    "label": "Xử lý vi phạm",
+    "checked_by_default": true
+  },
+  {
+    "line": 1164,
+    "checkbox_id": "check_geo_du_an",
+    "label": "Dự án",
+    "checked_by_default": true
+  },
+  {
+    "line": 1180,
+    "checkbox_id": "check_geo_khu_pho",
+    "label": "Bản đồ khu phố",
+    "checked_by_default": true
+  },
+  {
+    "line": 1195,
+    "checkbox_id": "check_geo_ranh_gioi_phuong_moi",
+    "label": "Ranh giới phường Tân Thuận",
+    "checked_by_default": false
+  },
+  {
+    "line": 1210,
+    "checkbox_id": "check_geo_ranh_gioi_phuong_cu",
+    "label": "Ranh giới cũ",
+    "checked_by_default": false
+  },
+  {
+    "line": 1225,
+    "checkbox_id": "check_geo_ranh_gioi_phuong_xa_moi_tphcm",
+    "label": "Ranh giới 168 phường xã",
+    "checked_by_default": false
+  }
+]

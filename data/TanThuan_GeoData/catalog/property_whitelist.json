@@ -1,0 +1,88 @@
+{
+  "geo_ranh_gioi_phuong_moi": [
+    "gid",
+    "ten",
+    "ten_xa",
+    "ma_xa",
+    "ma"
+  ],
+  "geo_ranh_gioi_phuong_cu": [
+    "gid",
+    "ten",
+    "ten_xa",
+    "ma_xa",
+    "ma"
+  ],
+  "geo_ranh_gioi_phuong_cu_point": [
+    "gid",
+    "ten",
+    "ten_xa",
+    "ma_xa",
+    "ma"
+  ],
+  "geo_ranh_gioi_phuong_xa_moi_tphcm": [
+    "gid",
+    "ten",
+    "ten_xa",
+    "ma_xa",
+    "ma"
+  ],
+  "geo_ranh_gioi_phuong_xa_moi_tphcm_point": [
+    "gid",
+    "ten",
+    "ten_xa",
+    "ma_xa",
+    "ma"
+  ],
+  "geo_khu_pho": [
+    "gid",
+    "ten",
+    "dien_tich"
+  ],
+  "geo_khu_pho_point": [
+    "gid",
+    "ten",
+    "dien_tich"
+  ],
+  "geo_phan_khu": [
+    "gid",
+    "ten_loai_dat",
+    "color",
+    "ma_loai_dat"
+  ],
+  "view_geo_phan_khu_point": [
+    "gid",
+    "ten_loai_dat",
+    "ma_loai_dat"
+  ],
+  "geo_truong_hoc": [
+    "gid",
+    "ten",
+    "ten_truong",
+    "cap_hoc",
+    "loai_hinh"
+  ],
+  "geo_vi_tri_co_quan": [
+    "gid",
+    "ten",
+    "ten_co_quan",
+    "loai"
+  ],
+  "geo_thua_dat": [
+    "gid",
+    "dien_tich"
+  ],
+  "geo_thua_dat_point": [
+    "gid",
+    "dien_tich"
+  ],
+  "geo_cap_phep_xay_dung": [
+    "gid"
+  ],
+  "geo_diem_nong": [
+    "gid"
+  ],
+  "geo_nha_tro": [
+    "gid"
+  ]
+}

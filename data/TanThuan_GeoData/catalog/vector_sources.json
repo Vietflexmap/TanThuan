@@ -1,0 +1,163 @@
+[
+  {
+    "line": 4007,
+    "active": true,
+    "id": "geo_ranh_gioi_phuong_xa_moi_tphcm",
+    "url_template": "https://map.chuyendoisotanthuan.com:2021/public.geo_ranh_gioi_phuong_xa_moi_tphcm/{z}/{x}/{y}.pbf",
+    "source_layer": "public.geo_ranh_gioi_phuong_xa_moi_tphcm"
+  },
+  {
+    "line": 4008,
+    "active": true,
+    "id": "geo_ranh_gioi_phuong_xa_moi_tphcm_point",
+    "url_template": "https://map.chuyendoisotanthuan.com:2021/public.geo_ranh_gioi_phuong_xa_moi_tphcm_point/{z}/{x}/{y}.pbf",
+    "source_layer": "public.geo_ranh_gioi_phuong_xa_moi_tphcm_point"
+  },
+  {
+    "line": 4010,
+    "active": true,
+    "id": "geo_ranh_gioi_phuong_moi",
+    "url_template": "https://map.chuyendoisotanthuan.com:2021/public.geo_ranh_gioi_phuong_moi/{z}/{x}/{y}.pbf",
+    "source_layer": "public.geo_ranh_gioi_phuong_moi"
+  },
+  {
+    "line": 4012,
+    "active": true,
+    "id": "geo_ranh_gioi_phuong_cu",
+    "url_template": "https://map.chuyendoisotanthuan.com:2021/public.geo_ranh_gioi_phuong_cu/{z}/{x}/{y}.pbf",
+    "source_layer": "public.geo_ranh_gioi_phuong_cu"
+  },
+  {
+    "line": 4013,
+    "active": true,
+    "id": "geo_ranh_gioi_phuong_cu_point",
+    "url_template": "https://map.chuyendoisotanthuan.com:2021/public.geo_ranh_gioi_phuong_cu_point/{z}/{x}/{y}.pbf",
+    "source_layer": "public.geo_ranh_gioi_phuong_cu_point"
+  },
+  {
+    "line": 4015,
+    "active": true,
+    "id": "geo_phan_khu",
+    "url_template": "https://map.chuyendoisotanthuan.com:2021/public.view_geo_phan_khu/{z}/{x}/{y}.pbf",
+    "source_layer": "public.view_geo_phan_khu"
+  },
+  {
+    "line": 4016,
+    "active": true,
+    "id": "view_geo_phan_khu_point",
+    "url_template": "https://map.chuyendoisotanthuan.com:2021/public.view_geo_phan_khu_point/{z}/{x}/{y}.pbf",
+    "source_layer": "public.view_geo_phan_khu_point"
+  },
+  {
+    "line": 4018,
+    "active": true,
+    "id": "geo_cap_phep_xay_dung",
+    "url_template": "https://map.chuyendoisotanthuan.com:2021/public.geo_cap_phep_xay_dung/{z}/{x}/{y}.pbf",
+    "source_layer": "public.geo_cap_phep_xay_dung"
+  },
+  {
+    "line": 4020,
+    "active": false,
+    "id": "geo_chung_cu",
+    "url_template": "https://map.chuyendoisotanthuan.com:2021/public.geo_chung_cu/{z}/{x}/{y}.pbf",
+    "source_layer": "public.geo_chung_cu"
+  },
+  {
+    "line": 4021,
+    "active": true,
+    "id": "geo_diem_nong",
+    "url_template": "https://map.chuyendoisotanthuan.com:2021/public.geo_diem_nong/{z}/{x}/{y}.pbf",
+    "source_layer": "public.geo_diem_nong"
+  },
+  {
+    "line": 4022,
+    "active": false,
+    "id": "geo_ho_kinh_doanh",
+    "url_template": "https://map.chuyendoisotanthuan.com:2021/public.geo_ho_kinh_doanh/{z}/{x}/{y}.pbf",
+    "source_layer": "public.geo_ho_kinh_doanh"
+  },
+  {
+    "line": 4024,
+    "active": true,
+    "id": "geo_nha_tro",
+    "url_template": "https://map.chuyendoisotanthuan.com:2021/public.geo_nha_tro/{z}/{x}/{y}.pbf",
+    "source_layer": "public.geo_nha_tro"
+  },
+  {
+    "line": 4026,
+    "active": true,
+    "id": "geo_truong_hoc",
+    "url_template": "https://map.chuyendoisotanthuan.com:2021/public.geo_truong_hoc/{z}/{x}/{y}.pbf",
+    "source_layer": "public.geo_truong_hoc"
+  },
+  {
+    "line": 4028,
+    "active": true,
+    "id": "geo_vi_tri_co_quan",
+    "url_template": "https://map.chuyendoisotanthuan.com:2021/public.geo_vi_tri_co_quan/{z}/{x}/{y}.pbf",
+    "source_layer": "public.geo_vi_tri_co_quan"
+  },
+  {
+    "line": 4030,
+    "active": false,
+    "id": "geo_xu_ly_vi_pham",
+    "url_template": "https://map.chuyendoisotanthuan.com:2021/public.geo_xu_ly_vi_pham/{z}/{x}/{y}.pbf",
+    "source_layer": "public.geo_xu_ly_vi_pham"
+  },
+  {
+    "line": 4032,
+    "active": true,
+    "id": "geo_thua_dat",
+    "url_template": "https://map.chuyendoisotanthuan.com:2021/public.geo_thua_dat/{z}/{x}/{y}.pbf",
+    "source_layer": "public.geo_thua_dat"
+  },
+  {
+    "line": 4033,
+    "active": true,
+    "id": "geo_thua_dat_point",
+    "url_template": "https://map.chuyendoisotanthuan.com:2021/public.geo_thua_dat_point/{z}/{x}/{y}.pbf",
+    "source_layer": "public.geo_thua_dat_point"
+  },
+  {
+    "line": 4035,
+    "active": true,
+    "id": "geo_khu_pho",
+    "url_template": "https://map.chuyendoisotanthuan.com:2021/public.geo_khu_pho/{z}/{x}/{y}.pbf",
+    "source_layer": "public.geo_khu_pho"
+  },
+  {
+    "line": 4036,
+    "active": true,
+    "id": "geo_khu_pho_point",
+    "url_template": "https://map.chuyendoisotanthuan.com:2021/public.geo_khu_pho_point/{z}/{x}/{y}.pbf",
+    "source_layer": "public.geo_khu_pho_point"
+  },
+  {
+    "line": 4038,
+    "active": false,
+    "id": "geo_dat_cong",
+    "url_template": "https://map.chuyendoisotanthuan.com:2021/public.geo_dat_cong/{z}/{x}/{y}.pbf",
+    "source_layer": "public.geo_dat_cong"
+  },
+  {
+    "line": 4039,
+    "active": false,
+    "id": "geo_dat_cong_point",
+    "url_template": "https://map.chuyendoisotanthuan.com:2021/public.geo_dat_cong_point/{z}/{x}/{y}.pbf",
+    "source_layer": "public.geo_dat_cong_point"
+  },
+  {
+    "line": 4041,
+    "active": false,
+    "id": "geo_van_phong_khu_pho_point",
+    "url_template": "https://map.chuyendoisotanthuan.com:2021/public.geo_van_phong_khu_pho_point/{z}/{x}/{y}.pbf",
+    "source_layer": "public.geo_van_phong_khu_pho_point"
+  },
+  {
+    "line": 4043,
+    "active": false,
+    "id": "geo_du_an",
+    "url_template": "https://map.chuyendoisotanthuan.com:2021/public.geo_du_an/{z}/{x}/{y}.pbf",
+    "source_layer": "public.geo_du_an"
+  }
+]

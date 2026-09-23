@@ -1,0 +1,20 @@
+{
+  "type": "FeatureCollection",
+  "name": "tan_thuan_source_center",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Map center from source code",
+        "source_line": 3760
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.7335338,
+          10.7500092
+        ]
+      }
+    }
+  ]
+}

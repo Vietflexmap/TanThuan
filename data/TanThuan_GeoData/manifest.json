@@ -1,0 +1,22 @@
+{
+  "package": "TanThuan_GeoData",
+  "version": "1.0.0",
+  "created_from": "Đã dán markdown (2)(2).md",
+  "files": [
+    "README.md",
+    "catalog/boundary_sources.json",
+    "catalog/geojson_api_endpoints.json",
+    "catalog/property_whitelist.json",
+    "catalog/ui_layers.json",
+    "catalog/vector_sources.json",
+    "geojson/tan_thuan_source_center.geojson",
+    "metadata/system_info.json",
+    "scripts/export_tan_thuan_geojson.py",
+    "scripts/requirements.txt",
+    "source_excerpt/relevant_source_lines.txt"
+  ],
+  "vector_source_count": 23,
+  "active_vector_source_count": 16,
+  "geojson_named_endpoint_count": 4,
+  "privacy": "No account/login or personal-record API harvesting; exporter strips properties using a whitelist."
+}

@@ -1,0 +1,21 @@
+{
+  "name": "Phường Tân Thuận - TP.HCM",
+  "system_title": "Hệ thống GIS hỗ trợ quản lý hành chính Phường Tân Thuận",
+  "description": "Tra cứu bản đồ quy hoạch, địa chính, đất công, xây dựng, trường học, nhà trọ và các lớp dữ liệu khác tại Phường Tân Thuận.",
+  "base_url": "https://chuyendoisotanthuan.com/",
+  "map_center_wgs84": [
+    106.7335338,
+    10.7500092
+  ],
+  "initial_zoom": 14,
+  "min_zoom": 8,
+  "max_zoom": 24,
+  "map_style": "https://tiles.openfreemap.org/styles/bright",
+  "source_file": "Đã dán markdown (2)(2).md",
+  "source_sha256": "0dbdf9cb5ca17da0ffb7fdf60050c170ca4f6443943950c132b05020333289b0",
+  "notes": [
+    "The source HTML references vector tiles and POST APIs; it does not embed complete boundary/parcel coordinate arrays.",
+    "The package therefore contains source catalogs plus an exporter that downloads the declared public MVT layers and converts them to GeoJSON when run in an environment that can reach the tile host.",
+    "Personal/account/API response data are intentionally not harvested."
+  ]
+}
