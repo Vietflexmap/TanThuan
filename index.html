@@ -1,45 +1,149 @@
 <!doctype html>
 <html lang="vi">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>WebGIS Phường Tân Thuận</title>
-<meta name="description" content="Hệ thống WebGIS hỗ trợ quản lý hành chính Phường Tân Thuận, TP.HCM">
-<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.7.1/dist/maplibre-gl.css">
-<link rel="stylesheet" href="./styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#a50f15" />
+  <meta name="description" content="Hệ thống WebGIS hỗ trợ quản lý hành chính Phường Tân Thuận, TP.HCM." />
+  <title>WebGIS Phường Tân Thuận · TP.HCM</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.22.0/dist/maplibre-gl.css" />
+  <link rel="stylesheet" href="./assets/css/app.css" />
 </head>
 <body>
-<header class="topbar">
-  <div class="brand"><div class="emblem">★</div><div><b>PHƯỜNG TÂN THUẬN</b><span>HỆ THỐNG THÔNG TIN ĐỊA LÝ HÀNH CHÍNH · TP.HCM</span></div></div>
-  <div class="top-actions"><button id="btnLocate">◎ Vị trí</button><button id="btnHome">⌂ Toàn phường</button></div>
-</header>
-<main>
-  <div id="map"></div>
-  <section class="search"><input id="searchInput" placeholder="Nhập tọa độ: 10.7506, 106.7334"><button id="searchBtn">Tìm</button></section>
-  <aside class="panel" id="panel">
-    <div class="panel-head"><div><small>TRUNG TÂM ĐIỀU HÀNH</small><h2>Bản đồ hành chính</h2></div><button id="collapseBtn">×</button></div>
-    <nav class="tabs">
-      <button class="tab active" data-tab="layers">Lớp dữ liệu</button>
-      <button class="tab" data-tab="info">Thông tin</button>
-      <button class="tab" data-tab="tools">Công cụ</button>
-    </nav>
-    <div class="tabpane active" id="layers">
-      <div class="section-title">LỚP NỀN</div>
-      <label class="row"><span>OpenStreetMap</span><input type="checkbox" id="baseOSM" checked></label>
-      <div class="section-title">DỮ LIỆU CHUYÊN ĐỀ</div>
-      <div id="layerList"></div>
-    </div>
-    <div class="tabpane" id="info"><div id="featureInfo" class="empty">Bấm vào đối tượng trên bản đồ để xem thông tin.</div></div>
-    <div class="tabpane" id="tools">
-      <button class="tool" id="measureLength">↔ Đo khoảng cách</button>
-      <button class="tool" id="measureArea">▱ Đo diện tích</button>
-      <button class="tool" id="clearMeasure">⌫ Xóa đo đạc</button>
-      <div class="hint">Bấm các điểm trên bản đồ, bấm đúp để kết thúc.</div>
-    </div>
-  </aside>
-  <button id="openPanel" class="open-panel">☰</button>
-  <div class="status"><span class="dot"></span><span id="statusText">Hệ thống sẵn sàng</span><span id="coords"></span></div>
-</main>
-<script src="https://unpkg.com/maplibre-gl@5.7.1/dist/maplibre-gl.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@turf/turf@7/turf.min.js"></script>
-<script src="./app.js"></script>
-</body></html>
+  <div class="app-shell">
+    <header class="admin-header">
+      <div class="brand-block">
+        <div class="national-mark" aria-hidden="true">★</div>
+        <div class="brand-copy">
+          <div class="eyebrow">ỦY BAN NHÂN DÂN PHƯỜNG TÂN THUẬN</div>
+          <h1>HỆ THỐNG WEBGIS HỖ TRỢ QUẢN LÝ HÀNH CHÍNH</h1>
+          <div class="subline">Phường Tân Thuận · Thành phố Hồ Chí Minh</div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="core-badge"><span class="pulse"></span> VIETFLEX WEBGIS CORE</div>
+        <button id="btnFullscreen" class="icon-btn light" type="button" title="Toàn màn hình" aria-label="Toàn màn hình">⛶</button>
+      </div>
+    </header>
+
+    <main class="map-stage">
+      <div id="map" aria-label="Bản đồ WebGIS Phường Tân Thuận"></div>
+
+      <div class="map-search-wrap">
+        <form id="globalSearchForm" class="map-search" autocomplete="off">
+          <span class="search-icon">⌕</span>
+          <input id="globalSearchInput" type="text" placeholder="Tọa độ 10.7506, 106.7334 hoặc dán link Google Maps…" />
+          <button type="submit" class="search-submit">Tra cứu</button>
+        </form>
+      </div>
+
+      <nav class="tool-rail" aria-label="Công cụ bản đồ">
+        <button id="btnHome" class="rail-btn active" type="button" data-label="Về Tân Thuận"><span>⌂</span></button>
+        <button id="btnLocate" class="rail-btn" type="button" data-label="Vị trí của tôi"><span>◎</span></button>
+        <button id="btnMeasureDistance" class="rail-btn" type="button" data-label="Đo khoảng cách"><span>↔</span></button>
+        <button id="btnMeasureArea" class="rail-btn" type="button" data-label="Đo diện tích"><span>△</span></button>
+        <button id="btnClearMeasure" class="rail-btn" type="button" data-label="Xóa đo đạc"><span>×</span></button>
+        <button id="btnBasemap" class="rail-btn" type="button" data-label="Nền bản đồ"><span>▦</span></button>
+      </nav>
+
+      <section id="basemapMenu" class="floating-card basemap-menu hidden" aria-label="Chọn nền bản đồ">
+        <div class="floating-title">Nền bản đồ</div>
+        <button class="basemap-option active" data-basemap="bright"><span class="thumb bright"></span><span><b>Hành chính sáng</b><small>OpenFreeMap Bright</small></span></button>
+        <button class="basemap-option" data-basemap="osm"><span class="thumb osm"></span><span><b>OpenStreetMap</b><small>Nền raster chuẩn</small></span></button>
+        <button class="basemap-option" data-basemap="imagery"><span class="thumb imagery"></span><span><b>Ảnh vệ tinh</b><small>Esri World Imagery</small></span></button>
+      </section>
+
+      <section class="ward-card glass-card">
+        <div class="ward-seal">TT</div>
+        <div>
+          <div class="ward-label">KHU VỰC ĐANG XEM</div>
+          <strong>Phường Tân Thuận</strong>
+          <span>TP. Hồ Chí Minh</span>
+        </div>
+      </section>
+
+      <button id="drawerToggle" class="drawer-toggle" type="button" aria-label="Ẩn/hiện bảng điều khiển">›</button>
+
+      <aside id="controlDrawer" class="control-drawer">
+        <div class="drawer-tabs" role="tablist">
+          <button class="drawer-tab active" data-tab="layers" type="button"><span>▱</span><b>Dữ liệu</b></button>
+          <button class="drawer-tab" data-tab="info" type="button"><span>ⓘ</span><b>Thông tin</b></button>
+          <button class="drawer-tab" data-tab="search" type="button"><span>⌕</span><b>Tra cứu</b></button>
+          <button class="drawer-tab" data-tab="system" type="button"><span>⚙</span><b>Hệ thống</b></button>
+        </div>
+
+        <div class="drawer-content">
+          <section class="tab-panel active" data-panel="layers">
+            <div class="panel-heading">
+              <div><span class="overline">BẢN ĐỒ CHUYÊN ĐỀ</span><h2>Lớp dữ liệu</h2></div>
+              <label class="master-switch"><input id="toggleAllLayers" type="checkbox" checked /><span></span></label>
+            </div>
+            <div class="notice-box"><span>i</span><p>Cấu trúc lớp được tổ chức theo Vietflex WebGIS Core. Các lớp phụ thuộc endpoint gốc sẽ tự báo trạng thái nếu nguồn không khả dụng.</p></div>
+            <div id="layerList" class="layer-list"></div>
+          </section>
+
+          <section class="tab-panel" data-panel="info">
+            <div class="panel-heading"><div><span class="overline">ĐỐI TƯỢNG BẢN ĐỒ</span><h2>Thông tin chi tiết</h2></div></div>
+            <div id="featureInfo" class="feature-info empty-state">
+              <div class="empty-icon">⌖</div>
+              <h3>Chưa chọn đối tượng</h3>
+              <p>Nhấp vào thửa đất, khu phố, quy hoạch hoặc điểm quản lý trên bản đồ để xem thông tin.</p>
+            </div>
+          </section>
+
+          <section class="tab-panel" data-panel="search">
+            <div class="panel-heading"><div><span class="overline">TRA CỨU NHANH</span><h2>Tìm kiếm dữ liệu</h2></div></div>
+            <div class="search-card">
+              <label for="coordinateSearch">Tọa độ / Google Maps URL</label>
+              <div class="field-row"><input id="coordinateSearch" placeholder="10.7506, 106.7334" /><button id="btnCoordinateSearch" type="button">Tìm</button></div>
+              <small>Hỗ trợ định dạng lat,lng hoặc URL Google Maps có chứa tọa độ.</small>
+            </div>
+            <div class="search-card">
+              <label>Tra cứu số tờ – số thửa</label>
+              <div class="two-fields"><input id="parcelSheet" inputmode="numeric" placeholder="Số tờ" /><input id="parcelNo" inputmode="numeric" placeholder="Số thửa" /></div>
+              <button id="btnParcelSearch" class="primary-wide" type="button">Tra cứu thửa đất</button>
+              <div id="parcelSearchResult" class="search-result muted">Kết quả từ API gốc sẽ xuất hiện tại đây khi endpoint cho phép truy cập chéo miền.</div>
+            </div>
+            <div class="search-card">
+              <label>Đi đến nhanh</label>
+              <div class="quick-grid">
+                <button type="button" data-quick="center">Trung tâm phường</button>
+                <button type="button" data-quick="planning">Quy hoạch</button>
+                <button type="button" data-quick="parcels">Địa chính</button>
+                <button type="button" data-quick="offices">Cơ quan</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="tab-panel" data-panel="system">
+            <div class="panel-heading"><div><span class="overline">NỀN TẢNG</span><h2>Thông tin hệ thống</h2></div></div>
+            <div class="system-card hero-system"><div class="system-logo">VF</div><div><strong>Vietflex WebGIS · Tân Thuận</strong><span>Ứng dụng WebGIS hành chính chuyên biệt</span></div></div>
+            <div class="system-grid">
+              <div><span>Map engine</span><b>MapLibre GL JS</b></div>
+              <div><span>Spatial core</span><b>Vietflex WebGIS</b></div>
+              <div><span>Basemap</span><b>Open / OSM / Esri</b></div>
+              <div><span>Triển khai</span><b>GitHub Pages</b></div>
+            </div>
+            <div class="source-note"><b>Nguồn cấu trúc nghiệp vụ</b><p>Thiết kế lại từ phiên bản WebGIS Tân Thuận gốc, giữ nhóm lớp và luồng nghiệp vụ nhưng tách giao diện, cấu hình và lõi bản đồ để dễ bảo trì.</p></div>
+          </section>
+        </div>
+      </aside>
+
+      <div id="measureHud" class="measure-hud hidden"><span id="measureModeLabel">Đo đạc</span><b id="measureValue">Nhấp trên bản đồ để bắt đầu</b><small>Nhấp đúp để kết thúc · ESC để xóa</small></div>
+
+      <footer class="status-bar">
+        <div><span class="status-dot online"></span><b>WebGIS đang hoạt động</b></div>
+        <div class="status-mid"><span id="statusLngLat">106.73353 · 10.75001</span><span id="statusZoom">Z14.0</span><span>WGS84 · EPSG:4326</span></div>
+        <div class="status-brand">VIETFLEX MAP · 2026</div>
+      </footer>
+    </main>
+  </div>
+
+  <div id="toastStack" class="toast-stack" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.22.0/dist/maplibre-gl.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@turf/turf@7.2.0/turf.min.js"></script>
+  <script type="module" src="./assets/js/app.js"></script>
+</body>
+</html>
