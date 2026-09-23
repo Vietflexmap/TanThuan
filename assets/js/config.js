@@ -77,17 +77,23 @@ export const APP_CONFIG = {
       ],
       mapLayers:[
         {id:'fill_geo_thua_dat',type:'fill',source:'geo_thua_dat',sourceLayer:'public.geo_thua_dat',minzoom:15,paint:{'fill-color':['case',['boolean',['feature-state','selected'],false],'#ffd33d','#ffffff'],'fill-opacity':['case',['boolean',['feature-state','selected'],false],.42,.035]}},
-        {id:'line_geo_thua_dat',type:'line',source:'geo_thua_dat',sourceLayer:'public.geo_thua_dat',minzooom:15,paint:{'line-color':'#282828','line-width':1}},
+        {id:'line_geo_thua_dat',type:'line',source:'geo_thua_dat',sourceLayer:'public.geo_thua_dat',minzoom:15,paint:{'line-color':'#282828','line-width':1}},
         {id:'label_geo_thua_dat',type:'symbol',source:'geo_thua_dat_point',sourceLayer:'public.geo_thua_dat_point',minzoom:17,layout:{'text-field':['concat',['to-string',['coalesce',['get','so_thua'],'']], '\n', ['to-string',['coalesce',['get','dien_tich'],'']]],'text-size':10},paint:{'text-color':'#111','text-halo-color':'#fff','text-halo-width':1}}
       ],queryLayerId:'fill_geo_thua_dat'
     },
-    { key:'dat-cong',group:'planning',label:'Đất công',subtitle:'Nguồn Đang tết trong bản gốc',color:'#0b8f78',icon:'ĐP',enabled:false,visible:false },
+    { key:'dat-cong',group:'planning',label:'Đất công',subtitle:'Nguồn đang tắt trong bản gốc',color:'#0b8f78',icon:'ĐP',enabled:false,visible:false },
     {
       key:'cap-phep',group:'management',label:'Cấp phép xây dựng',subtitle:'Điểm hồ sơ cấp phép',color:'#d83b01',icon:'XD',enabled:true,visible:true,
       sources:[{id:'geo_cap_phep_xay_dung',tile:'/public.geo_cap_phep_xay_dung/{z}/{x}/{y}.pbf',promoteId:'gid'}],
       mapLayers:[{id:'symbol_geo_cap_phep_xay_dung',type:'circle',source:'geo_cap_phep_xay_dung',sourceLayer:'public.geo_cap_phep_xay_dung',minzoom:14,paint:{'circle-radius':['interpolate',['linear'],['zoom'],14,4,18,7],'circle-color':'#d83b01','circle-stroke-color':'#fff','circle-stroke-width':1.5}}],queryLayerId:'symbol_geo_cap_phep_xay_dung'
     },
     { key:'chung-cu',group:'management',label:'Chung cư',subtitle:'Nguồn đang tắt trong bản gốc',color:'#845ec2',icon:'CC',enabled:false,visible:false },
+    {
+      key:'diem-nong',group:'management',label:'Điểm nóng',subtitle:'Điểm theo dõi nghiệp vụ',color:'#ff6b00',icon:'DN',enabled:true,visible:true,
+      sources:[{id:'geo_diem_nong',tile:'/public.geo_diem_nong/{z}/{x}/{y}.pbf',promoteId:'gid'}],
+      mapLayers:[{id:'symbol_geo_diem_nong',type:'circle',source:'geo_diem_nong',sourceLayer:'public.geo_diem_nong',minzoom:14,paint:{'circle-radius':['interpolate',['linear'],['zoom'],14,5,18,8],'circle-color':'#ff6b00','circle-stroke-color':'#f4c430','circle-stroke-width':2}}],
+      queryLayerId:'symbol_geo_diem_nong'
+    },
    { key:'ho-kinh-doanh',group:'management',label:'Hộ kinh doanh',subtitle:'Nguồn đang tắt trong bản gốc',color:'#0081cf',icon:'HKD',enabled:false,visible:false },
     {
       key:'nha-tro',group:'management',label:'Nhà trọ',subtitle:'Cơ sở lưu trú/nhà trọ',color:'#0078d4',icon:'NT',enabled:true,visible:true,
