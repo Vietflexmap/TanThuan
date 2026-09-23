@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>WebGIS Phường Tân Thuận</title>
+<meta name="description" content="Hệ thống WebGIS hỗ trợ quản lý hành chính Phường Tân Thuận, TP.HCM">
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.7.1/dist/maplibre-gl.css">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><div class="emblem">★</div><div><b>PHƯỜNG TÂN THUẬN</b><span>HỆ THỐNG THÔNG TIN ĐỊA LÝ HÀNH CHÍNH · TP.HCM</span></div></div>
+  <div class="top-actions"><button id="btnLocate">◎ Vị trí</button><button id="btnHome">⌂ Toàn phường</button></div>
+</header>
+<main>
+  <div id="map"></div>
+  <section class="search"><input id="searchInput" placeholder="Nhập tọa độ: 10.7506, 106.7334"><button id="searchBtn">Tìm</button></section>
+  <aside class="panel" id="panel">
+    <div class="panel-head"><div><small>TRUNG TÂM ĐIỀU HÀNH</small><h2>Bản đồ hành chính</h2></div><button id="collapseBtn">×</button></div>
+    <nav class="tabs">
+      <button class="tab active" data-tab="layers">Lớp dữ liệu</button>
+      <button class="tab" data-tab="info">Thông tin</button>
+      <button class="tab" data-tab="tools">Công cụ</button>
+    </nav>
+    <div class="tabpane active" id="layers">
+      <div class="section-title">LỚP NỀN</div>
+      <label class="row"><span>OpenStreetMap</span><input type="checkbox" id="baseOSM" checked></label>
+      <div class="section-title">DỮ LIỆU CHUYÊN ĐỀ</div>
+      <div id="layerList"></div>
+    </div>
+    <div class="tabpane" id="info"><div id="featureInfo" class="empty">Bấm vào đối tượng trên bản đồ để xem thông tin.</div></div>
+    <div class="tabpane" id="tools">
+      <button class="tool" id="measureLength">↔ Đo khoảng cách</button>
+      <button class="tool" id="measureArea">▱ Đo diện tích</button>
+      <button class="tool" id="clearMeasure">⌫ Xóa đo đạc</button>
+      <div class="hint">Bấm các điểm trên bản đồ, bấm đúp để kết thúc.</div>
+    </div>
+  </aside>
+  <button id="openPanel" class="open-panel">☰</button>
+  <div class="status"><span class="dot"></span><span id="statusText">Hệ thống sẵn sàng</span><span id="coords"></span></div>
+</main>
+<script src="https://unpkg.com/maplibre-gl@5.7.1/dist/maplibre-gl.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@turf/turf@7/turf.min.js"></script>
+<script src="./app.js"></script>
+</body></html>
