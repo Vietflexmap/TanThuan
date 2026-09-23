@@ -1,0 +1,345 @@
+Extracted from: Đã dán markdown (2)(2).md
+
+--- lines 8-15 ---
+8: <title>Phường Tân Thuận - TP.HCM</title>
+9: <base href="[https://chuyendoisotanthuan.com/](https://chuyendoisotanthuan.com/)">
+10: <meta charset="utf-8" />
+11: <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+12: <br>
+13: <meta property="og\:description" content="Ứng dụng GIS hỗ trợ quản lý hành chính trên địa bàn Phường Tân Thuận, TP.HCM." />
+14: <meta name="description" content="Tra cứu bản đồ quy hoạch, địa chính, đất công, xây dựng, trường học, nhà trọ và các lớp dữ liệu khác tại Phường Tân Thuận.">
+15: <meta property="og\:title" content="Hệ thống GIS hỗ trợ quản lý hành chính Phường Tân Thuận" />
+
+--- lines 1180-1234 ---
+1180: <input type="checkbox" class="switch-input" id="check_geo_khu_pho" checked>
+1181: <span class="switch-toggle-slider">
+1182: <span class="switch-on">
+1183: <i class="bx bx-check"></i>
+1184: </span>
+1185: <span class="switch-off">
+1186: <i class="bx bx-x"></i>
+1187: </span>
+1188: </span>
+1189: <span class="switch-label text-primary fw-medium">Bản đồ khu phố</span>
+1190: </label>
+1191: </div>
+1192: <br>
+1193: <div class="mb-3">
+1194: <label class="switch switch-primary ">
+1195: <input type="checkbox" class="switch-input" id="check_geo_ranh_gioi_phuong_moi">
+1196: <span class="switch-toggle-slider">
+1197: <span class="switch-on">
+1198: <i class="bx bx-check"></i>
+1199: </span>
+1200: <span class="switch-off">
+1201: <i class="bx bx-x"></i>
+1202: </span>
+1203: </span>
+1204: <span class="switch-label text-primary fw-medium">Ranh giới phường Tân Thuận</span>
+1205: </label>
+1206: </div>
+1207: <br>
+1208: <div class="mb-3">
+1209: <label class="switch switch-primary ">
+1210: <input type="checkbox" class="switch-input" id="check_geo_ranh_gioi_phuong_cu">
+1211: <span class="switch-toggle-slider">
+1212: <span class="switch-on">
+1213: <i class="bx bx-check"></i>
+1214: </span>
+1215: <span class="switch-off">
+1216: <i class="bx bx-x"></i>
+1217: </span>
+1218: </span>
+1219: <span class="switch-label text-primary fw-medium">Ranh giới cũ</span>
+1220: </label>
+1221: </div>
+1222: <br>
+1223: <div class="mb-3">
+1224: <label class="switch switch-primary ">
+1225: <input type="checkbox" class="switch-input" id="check_geo_ranh_gioi_phuong_xa_moi_tphcm">
+1226: <span class="switch-toggle-slider">
+1227: <span class="switch-on">
+1228: <i class="bx bx-check"></i>
+1229: </span>
+1230: <span class="switch-off">
+1231: <i class="bx bx-x"></i>
+1232: </span>
+1233: </span>
+1234: <span class="switch-label text-primary fw-medium">Ranh giới 168 phường xã</span>
+
+--- lines 3760-3771 ---
+3760: var centermap = [106.7335338,10.7500092];
+3761: <br>
+3762: const STYLE_BRIGHT = 'https://tiles.openfreemap.org/styles/bright';
+3763: <br>
+3764: const map = new maplibregl.Map({
+3765: container: 'map',
+3766: style: STYLE_BRIGHT,
+3767: center: centermap,
+3768: zoom: 14,
+3769: maxZoom: 24,
+3770: minZoom: 8
+3771: });
+
+--- lines 4003-4043 ---
+4003: // ------------------ MAP LOAD ------------------
+4004: <br>
+4005: map.on('load', async function() {
+4006: // ------------------ SOURCES ------------------
+4007: addVectorSource(map, 'geo_ranh_gioi_phuong_xa_moi_tphcm', 'https://map.chuyendoisotanthuan.com:2021/public.geo_ranh_gioi_phuong_xa_moi_tphcm/{z}/{x}/{y}.pbf');
+4008: addVectorSource(map, 'geo_ranh_gioi_phuong_xa_moi_tphcm_point', 'https://map.chuyendoisotanthuan.com:2021/public.geo_ranh_gioi_phuong_xa_moi_tphcm_point/{z}/{x}/{y}.pbf');
+4009: <br>
+4010: addVectorSource(map, 'geo_ranh_gioi_phuong_moi', 'https://map.chuyendoisotanthuan.com:2021/public.geo_ranh_gioi_phuong_moi/{z}/{x}/{y}.pbf');
+4011: <br>
+4012: addVectorSource(map, 'geo_ranh_gioi_phuong_cu', 'https://map.chuyendoisotanthuan.com:2021/public.geo_ranh_gioi_phuong_cu/{z}/{x}/{y}.pbf');
+4013: addVectorSource(map, 'geo_ranh_gioi_phuong_cu_point', 'https://map.chuyendoisotanthuan.com:2021/public.geo_ranh_gioi_phuong_cu_point/{z}/{x}/{y}.pbf');
+4014: <br>
+4015: addVectorSource(map, 'geo_phan_khu', 'https://map.chuyendoisotanthuan.com:2021/public.view_geo_phan_khu/{z}/{x}/{y}.pbf');
+4016: addVectorSource(map, 'view_geo_phan_khu_point', 'https://map.chuyendoisotanthuan.com:2021/public.view_geo_phan_khu_point/{z}/{x}/{y}.pbf');
+4017: <br>
+4018: addVectorSource(map, 'geo_cap_phep_xay_dung', 'https://map.chuyendoisotanthuan.com:2021/public.geo_cap_phep_xay_dung/{z}/{x}/{y}.pbf');
+4019: <br>
+4020: // addVectorSource(map, 'geo_chung_cu', 'https://map.chuyendoisotanthuan.com:2021/public.geo_chung_cu/{z}/{x}/{y}.pbf');
+4021: addVectorSource(map, 'geo_diem_nong', 'https://map.chuyendoisotanthuan.com:2021/public.geo_diem_nong/{z}/{x}/{y}.pbf');
+4022: // addVectorSource(map, 'geo_ho_kinh_doanh', 'https://map.chuyendoisotanthuan.com:2021/public.geo_ho_kinh_doanh/{z}/{x}/{y}.pbf');
+4023: <br>
+4024: addVectorSource(map, 'geo_nha_tro', 'https://map.chuyendoisotanthuan.com:2021/public.geo_nha_tro/{z}/{x}/{y}.pbf');
+4025: <br>
+4026: addVectorSource(map, 'geo_truong_hoc', 'https://map.chuyendoisotanthuan.com:2021/public.geo_truong_hoc/{z}/{x}/{y}.pbf');
+4027: <br>
+4028: addVectorSource(map, 'geo_vi_tri_co_quan', 'https://map.chuyendoisotanthuan.com:2021/public.geo_vi_tri_co_quan/{z}/{x}/{y}.pbf');
+4029: <br>
+4030: // addVectorSource(map, 'geo_xu_ly_vi_pham', 'https://map.chuyendoisotanthuan.com:2021/public.geo_xu_ly_vi_pham/{z}/{x}/{y}.pbf');
+4031: <br>
+4032: addVectorSource(map, 'geo_thua_dat', 'https://map.chuyendoisotanthuan.com:2021/public.geo_thua_dat/{z}/{x}/{y}.pbf');
+4033: addVectorSource(map, 'geo_thua_dat_point', 'https://map.chuyendoisotanthuan.com:2021/public.geo_thua_dat_point/{z}/{x}/{y}.pbf');
+4034: <br>
+4035: addVectorSource(map, 'geo_khu_pho', 'https://map.chuyendoisotanthuan.com:2021/public.geo_khu_pho/{z}/{x}/{y}.pbf');
+4036: addVectorSource(map, 'geo_khu_pho_point', 'https://map.chuyendoisotanthuan.com:2021/public.geo_khu_pho_point/{z}/{x}/{y}.pbf');
+4037: <br>
+4038: // addVectorSource(map, 'geo_dat_cong', 'https://map.chuyendoisotanthuan.com:2021/public.geo_dat_cong/{z}/{x}/{y}.pbf');
+4039: // addVectorSource(map, 'geo_dat_cong_point', 'https://map.chuyendoisotanthuan.com:2021/public.geo_dat_cong_point/{z}/{x}/{y}.pbf');
+4040: <br>
+4041: // addVectorSource(map, 'geo_van_phong_khu_pho_point', 'https://map.chuyendoisotanthuan.com:2021/public.geo_van_phong_khu_pho_point/{z}/{x}/{y}.pbf');
+4042: <br>
+4043: // addVectorSource(map, 'geo_du_an', 'https://map.chuyendoisotanthuan.com:2021/public.geo_du_an/{z}/{x}/{y}.pbf');
+
+--- lines 4071-4255 ---
+4071: // RANH GIỚI HÀNH CHÍNH
+4072: add_line_layer(map, {
+4073: id: 'line_geo_ranh_gioi_phuong_xa_moi_tphcm',
+4074: source: 'geo_ranh_gioi_phuong_xa_moi_tphcm',
+4075: sourceLayer: 'public.geo_ranh_gioi_phuong_xa_moi_tphcm',
+4076: minzoom: 5,
+4077: maxzoom: 24,
+4078: lineColor: '#0022FF',
+4079: lineWidth: 2,
+4080: lineOpacity: 1,
+4081: });
+4082: map.setLayoutProperty('line_geo_ranh_gioi_phuong_xa_moi_tphcm', 'visibility', 'none');
+4083: <br>
+4084: add_label_layer(map, {
+4085: id: 'label_geo_ranh_gioi_phuong_xa_moi_tphcm',
+4086: source: 'geo_ranh_gioi_phuong_xa_moi_tphcm_point',
+4087: sourceLayer: 'public.geo_ranh_gioi_phuong_xa_moi_tphcm_point',
+4088: minzoom: 12,
+4089: maxzoom: 24,
+4090: textField: 'ten_xa',
+4091: textSize: 16,
+4092: textColor: '#0022FF',
+4093: haloColor: '#ffffff',
+4094: haloWidth: 1,
+4095: allowOverlap: false
+4096: });
+4097: map.setLayoutProperty('label_geo_ranh_gioi_phuong_xa_moi_tphcm', 'visibility', 'none');
+4098: <br>
+4099: <br>
+4100: add_line_layer(map, {
+4101: id: 'line_geo_ranh_gioi_phuong_moi',
+4102: source: 'geo_ranh_gioi_phuong_moi',
+4103: sourceLayer: 'public.geo_ranh_gioi_phuong_moi',
+4104: minzoom: 5,
+4105: maxzoom: 24,
+4106: lineColor: '#ff0000',
+4107: lineWidth: 4,
+4108: lineOpacity: 1,
+4109: });
+4110: map.setLayoutProperty('line_geo_ranh_gioi_phuong_moi', 'visibility', 'none');
+4111: <br>
+4112: add_line_layer(map, {
+4113: id: 'line_geo_ranh_gioi_phuong_cu',
+4114: source: 'geo_ranh_gioi_phuong_cu',
+4115: sourceLayer: 'public.geo_ranh_gioi_phuong_cu',
+4116: minzoom: 5,
+4117: maxzoom: 24,
+4118: lineColor: '#7A00FF',
+4119: lineWidth: 2.5,
+4120: lineOpacity: 1,
+4121: });
+4122: map.setLayoutProperty('line_geo_ranh_gioi_phuong_cu', 'visibility', 'none');
+4123: <br>
+4124: add_label_layer(map, {
+4125: id: 'label_geo_ranh_gioi_phuong_cu',
+4126: source: 'geo_ranh_gioi_phuong_cu_point',
+4127: sourceLayer: 'public.geo_ranh_gioi_phuong_cu_point',
+4128: minzoom: 12,
+4129: maxzoom: 24,
+4130: textField: 'ten_xa',
+4131: textSize: 16,
+4132: textColor: '#7A00FF',
+4133: haloColor: '#ffffff',
+4134: haloWidth: 1,
+4135: allowOverlap: false
+4136: });
+4137: map.setLayoutProperty('label_geo_ranh_gioi_phuong_cu', 'visibility', 'none');
+4138: <br>
+4139: // KHU PHỐ
+4140: <br>
+4141: add_fill_layer(map, {
+4142: id: 'fill_geo_khu_pho',
+4143: source: 'geo_khu_pho',
+4144: sourceLayer: 'public.geo_khu_pho',
+4145: promoteId: 'gid',
+4146: minzoom: 12,
+4147: maxzoom: 24,
+4148: fillColor: [
+4149: 'case',
+4150: ['boolean', ['feature-state', 'selected'], false],
+4151: '#ff0000',
+4152: 'rgba(0,0,0,0)'
+4153: ],
+4154: fillOpacity: 0.2
+4155: });
+4156: <br>
+4157: add_line_layer(map, {
+4158: id: 'line_geo_khu_pho',
+4159: source: 'geo_khu_pho',
+4160: sourceLayer: 'public.geo_khu_pho',
+4161: minzoom: 12,
+4162: maxzoom: 24,
+4163: lineColor: '#ff0000',
+4164: lineWidth: 1.5,
+4165: lineOpacity: 1
+4166: });
+4167: <br>
+4168: <br>
+4169: add_label_layer(map, {
+4170: id: 'label_geo_khu_pho',
+4171: source: 'geo_khu_pho_point',
+4172: sourceLayer: 'public.geo_khu_pho_point',
+4173: minzoom: 12,
+4174: maxzoom: 24,
+4175: textField: 'ten',
+4176: textSize: 16,
+4177: textColor: '#ff0000',
+4178: haloColor: '#ffffff',
+4179: haloWidth: 1,
+4180: allowOverlap: false
+4181: });
+4182: map.setLayoutProperty('label_geo_khu_pho', 'visibility', 'visibility');
+4183: <br>
+4184: <br>
+4185: // ------------------ QUY HOẠCH PHÂN KHU ------------------
+4186: add_fill_layer(map, {
+4187: id: 'fill_view_geo_phan_khu',
+4188: source: 'geo_phan_khu',
+4189: sourceLayer: 'public.view_geo_phan_khu',
+4190: minzoom: 12,
+4191: maxzoom: 24,
+4192: fillColor: ['coalesce', ['get', 'color'], '#000000'],
+4193: fillOpacity: 0.5
+4194: });
+4195: map.setLayoutProperty('fill_view_geo_phan_khu', 'visibility', 'visibility');
+4196: <br>
+4197: <br>
+4198: add_line_layer(map, {
+4199: id: 'line_view_geo_phan_khu',
+4200: source: 'geo_phan_khu',
+4201: sourceLayer: 'public.view_geo_phan_khu',
+4202: minzoom: 15,
+4203: maxzoom: 24,
+4204: lineColor: '#ff0000',
+4205: lineWidth: 1,
+4206: lineOpacity: 1
+4207: });
+4208: map.setLayoutProperty('line_view_geo_phan_khu', 'visibility', 'visibility');
+4209: <br>
+4210: add_label_layer(map, {
+4211: id: 'label_view_geo_phan_khu',
+4212: source: 'view_geo_phan_khu_point',
+4213: sourceLayer: 'public.view_geo_phan_khu_point',
+4214: minzoom: 12,
+4215: maxzoom: 24,
+4216: textField: 'ten_loai_dat',
+4217: textSize: 12,
+4218: textColor: '#ff0000',
+4219: haloColor: '#ffffff',
+4220: haloWidth: 1,
+4221: allowOverlap: false
+4222: });
+4223: map.setLayoutProperty('label_view_geo_phan_khu', 'visibility', 'visibility');
+4224: <br>
+4225: <br>
+4226: // ------------------ THỬA ĐẤT ------------------
+4227: add_fill_layer(map, {
+4228: id: 'fill_geo_thua_dat',
+4229: source: 'geo_thua_dat',
+4230: sourceLayer: 'public.geo_thua_dat',
+4231: minzoom: 16,
+4232: maxzoom: 24,
+4233: fillColor: '#FF00FF',
+4234: fillOpacity: 0
+4235: });
+4236: <br>
+4237: add_line_layer(map, {
+4238: id: 'line_geo_thua_dat',
+4239: source: 'geo_thua_dat',
+4240: sourceLayer: 'public.geo_thua_dat',
+4241: minzoom: 16,
+4242: maxzoom: 24,
+4243: lineColor: '#1f00ff',
+4244: lineWidth: 1,
+4245: lineOpacity: 1
+4246: });
+4247: <br>
+4248: add_label_layer(map, {
+4249: id: 'label_geo_thua_dat',
+4250: source: 'geo_thua_dat_point',
+4251: sourceLayer: 'public.geo_thua_dat_point',
+4252: minzoom: 19,
+4253: maxzoom: 22,
+4254: textField: [
+4255: 'format',
+
+--- lines 6130-6160 ---
+6130: <br>
+6131: const fetch_geo_thua = fetch('https://chuyendoisotanthuan.com/ThuaDat/geoJsonThuaClick', {
+6132: method: 'POST',
+6133: headers: {
+6134: 'Content-Type': 'application/x-www-form-urlencoded'
+6135: },
+6136: body: `gid=${encodeURIComponent(gid)}`
+6137: }).then(async response => {
+6138: let text = await response.text();
+6139: try {
+6140: return JSON.parse(text);
+6141: } catch (e) {
+6142: console.error('SERVER TRẢ LỖI:', text);
+6143: throw new Error('Response không phải JSON');
+6144: }
+6145: });
+6146: <br>
+6147: <br>
+6148: Promise.all([fetch_attributes_thua_dat, fetch_attributes_khu_pho, fetch_attributes_phan_khu, fetch_geo_thua])
+6149: .then(([result_attributes_thua_dat, result_attributes_khu_pho, result_attributes_phan_khu, result_geo_thua]) => {
+6150: let info = '';
+6151: // geojson thửa
+6152: if (result_geo_thua.success && result_geo_thua.data) {
+6153: highlightThuaVaDoCanh(result_geo_thua.data);
+6154: zoomToThua(result_geo_thua.data);
+6155: } else {
+6156: clearHighlightThua();
+6157: }
+6158: <br>
+6159: <br>
+6160: // 1. THÔNG TIN
